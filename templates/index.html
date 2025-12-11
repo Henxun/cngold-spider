@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贵金属行情展示</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>贵金属实时行情</h1>
+            <p class="update-time">最后更新时间: {{ metals[-1]['timestamp'] }}</p>
+        </header>
+        
+        <main>
+            <div class="metal-grid">
+                {% for metal in metals %}
+                <div class="metal-card">
+                    <div class="metal-header">
+                        <h2>{{ metal.name }}</h2>
+                        <span class="symbol">{{ metal.symbol }}</span>
+                    </div>
+                    <div class="metal-price">
+                        <span class="price">￥{{ metal.price }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2024 贵金属行情展示平台</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 设置每5秒刷新一次页面
+        setInterval(function() {
+            location.reload();
+        }, 10000); // 10000毫秒 = 10秒
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[project]
+name = "metal-market"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "flask==3.0.0",
+    "python-dotenv==1.0.0",
+    "pyxrate>=0.2",
+    "requests==2.31.0",
+]
